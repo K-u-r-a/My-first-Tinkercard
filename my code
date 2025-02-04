@@ -1,0 +1,50 @@
+#include <Adafruit_LiquidCrystal.h> //initializing a library.
+
+int seconds = 0; //initialized the counter to be zero.
+
+int led_one = 12; //the led to be placed at pin 12.
+
+ Adafruit_LiquidCrystal lcd(0);//0-->means you are setting the default
+
+void setup(){
+  
+  lcd.begin(16,2);//initialize col and rows of the LCD.
+  
+  
+  pinMode(led_one, OUTPUT); //set up the mode of the led.
+  
+  lcd.setBacklight(1);  //leds of  the lcd are high.
+  
+  lcd.print("LED LIGHTING");//welcome will run once.
+  
+  delay(2000);//Delay by 2 seconds.
+            
+            }
+            
+            void loop(){//the code will run repeatedly.
+              
+              lcd.setCursor(0,1);//set where the cursor will be.
+              
+              lcd.print(seconds);//printing the content of the variable.
+              
+              delay(2000);//Delay by 2 seonds.
+              
+              lcd.clear();//clear whatever was displayed.
+              
+              digitalWrite(led_one,HIGH); //the led to go HIGH.
+              
+              lcd.print("LED ON");
+              
+              
+             delay(500);
+              
+              digitalWrite(led_one,LOW);//led is turnde OFF.
+              
+              lcd.print("LED OFF");//message led off.
+              
+              
+              delay(500);
+              
+              
+              seconds += 1;//we increment the counter.
+            } 
